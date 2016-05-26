@@ -19,13 +19,14 @@ angular.module('commentBox', ['commentList', 'commentForm'])
         url: '@',
         pollInterval: '@'
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope) {
         var loadCommentsFromServer = function () {
           $http.get(scope.url)
-            .success(function(data, status, headers, config){
+            .success(function(data){
+              console.log(data);
               scope.data = data;
             })
-            .error(function(data, status, headers, config){
+            .error(function(data, status){
               console.log(status);
             });
         };

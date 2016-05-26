@@ -14,11 +14,15 @@ angular.module('comment', [])
                       '{{author}}' +
                   '</h2>' +
                   '<ng-transclude></ng-transclude>' +
+                  '<div>{{ date | dateFormat }}</div>' +
+                  // TODO: Move the date to an independent directive
+                  // '<commentdate date="date"></commentdate>' +
                 '</div>',
       restrict: 'E',
       transclude: true,
       scope: {
-        author: '@'
+        author: '@',
+        date: '@'
       },
       link: function postLink(scope, element, attrs) {}
     };
