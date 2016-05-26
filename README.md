@@ -5,6 +5,7 @@
 - Nodejs
 - NPM
 - Install mongoDb and add it to your PATH
+- Install deployd globally
 
 ## Start
 Fork the repo into your github account.
