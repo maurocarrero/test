@@ -8,4 +8,4 @@
  *
  * Main module of the application.
  */
-angular.module('angularApp', ['comment','commentList', 'commentForm', 'commentBox']);
+angular.module('angularApp', ['comment','commentList', 'commentForm', 'commentBox', 'filters']);

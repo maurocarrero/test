@@ -3,7 +3,7 @@
 describe('Directive: commentForm', function () {
 
   // load the directive's module
-  beforeEach(module('commentForm'));
+  beforeEach(module('commentForm', 'filters'));
 
   var element, scope, compile, form;
 

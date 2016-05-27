@@ -23,7 +23,6 @@ angular.module('commentBox', ['commentList', 'commentForm'])
         var loadCommentsFromServer = function () {
           $http.get(scope.url)
             .success(function(data){
-              console.log(data);
               scope.data = data;
             })
             .error(function(data, status){
@@ -32,12 +31,13 @@ angular.module('commentBox', ['commentList', 'commentForm'])
         };
         var handleCommentSubmit = function (event, data) {
           var comment = data;
+          comment.date = new Date();
           scope.data.concat([comment]);
           $http.post(scope.url, comment)
-            .success(function(data, status, headers, config){
+            .success(function(){
               console.log('success')
             })
-            .error(function(data, status, headers, config){
+            .error(function(data, status){
               console.log(status);
             });
         };

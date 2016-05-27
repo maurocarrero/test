@@ -18,7 +18,6 @@ angular.module('commentList', ['comment'])
       restrict: 'E',
       scope: {
         comments: '='
-      },
-      link: function postLink(scope, element, attrs) {}
+      }
     };
   });

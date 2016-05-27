@@ -15,7 +15,7 @@ angular.module('commentForm', [])
                   '<input type="submit" value="Post" ng-click="submitComment()"/>' +
                 '</form>',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope) {
         scope.comment = {};
         scope.submitComment = function(){
           var comment = scope.comment;
