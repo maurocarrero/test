@@ -7,6 +7,7 @@
                 <span id="author">{{author}}</span>
             </h2>
             <span id="msg">{{msg}}</span>
+            <div id="date">{{formatDate(date)}}</div>
             <!--x-repeat in Alpha version does not allow to pass inner scope and use it as content-->
             <!-- <content/> -->
 
@@ -17,12 +18,44 @@
 <script>
     Polymer({
         is: "comment-model",
+        formatDate: function (dateString) {
+            function responseStringBuilder(value, time) {
+              return value + ' ' + time + (value > 1 ? 's' : '') + ' ago';
+            }
+            var commentDate = new Date(dateString);
+            var now = new Date();
+
+            // the comment date should always be a valid date and previous to today
+            if (typeof dateString !== 'boolean' && !isNaN(Date.parse(dateString)) && now > commentDate) {
+              var millis = now - commentDate; // diff in milliseconds
+
+              var seconds = Math.floor(millis / 1000); // seconds
+              var minutes = Math.floor(seconds / 60); // minutes
+              var hours = Math.floor(minutes / 60); // hours
+              var days = Math.floor(hours / 24); // days
+
+              if (seconds < 60) {
+                return responseStringBuilder(1, 'minute');
+              }
+              if (minutes < 60) {
+                return responseStringBuilder(minutes, 'minute');
+              }
+              if (hours < 24) {
+                return responseStringBuilder(hours, 'hour');
+              }
+
+              return responseStringBuilder(days, 'day');
+            }
+
+            return 'Invalid date';
+        },
         properties: {
             author: {
                 type: String,
                 value: ""
             },
-            msg: String
+            msg: String,
+            date: String
         }
     });
 </script>

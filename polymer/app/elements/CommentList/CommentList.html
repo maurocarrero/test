@@ -3,7 +3,7 @@
 <dom-module id="comment-list">
     <template>
         <template is="dom-repeat" items="{{data}}" id="list">
-            <comment-model author="{{item.author}}" msg="{{item.msg}}">
+            <comment-model author="{{item.author}}" msg="{{item.msg}}" date="{{item.date}}">
             </comment-model>
         </template>
         <div hidden$="{{noCommentsHidden}}">No comments yet</div>
