@@ -38,6 +38,7 @@ var CommentModel = React.createClass({
           {this.props.author}
         </h2>
         <span ref="msg">{this.props.children}</span>
+        <div>{Date.testFormat(this.props.date)}</div>
       </div>
     );
   }

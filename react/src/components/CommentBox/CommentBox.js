@@ -47,6 +47,10 @@ var CommentBox = React.createClass({
   handleCommentSubmit: function (comment) {
     var comments = this.state.data;
     var newComments = comments.concat([comment]);
+
+    // Adding the current date to the newly created comment.
+    comment.date = new Date();
+
     this.setState({data: newComments});
     $.ajax({
       url: this.props.url,
