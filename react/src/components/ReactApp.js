@@ -13,8 +13,9 @@ var ReactApp = React.createClass({
 
   getInitialState: function () {
       /**
-       * I added the formatter to the prototype of the Date object instead of filtering
-       * as in the Angular sample.
+       * I added the formatter as a static method of the core Date object instead of
+       * filtering the value in the UI as in the Angular sample or adding a specific method
+       * to process the value ad hoc as in the Polymer sample.
        */
       if (typeof Date.testFormat !== 'function') {
           Date.testFormat = (function () {
